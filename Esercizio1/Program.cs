@@ -8,13 +8,13 @@
 
 Console.WriteLine("Inserisci dei valori [digita 'fine' per terminare l'inserimento]:");
 var numeroAcquisito = Console.ReadLine();
-var listaNumeri = new List<decimal>();
+var listaNumeri = new List<int>();
 
 while (numeroAcquisito != "fine")
 {
     try
     {
-        var num = Convert.ToDecimal(numeroAcquisito);
+        var num = Convert.ToInt32(numeroAcquisito);
         listaNumeri.Add(num);
     }
     catch
@@ -24,7 +24,7 @@ while (numeroAcquisito != "fine")
     numeroAcquisito = Console.ReadLine();
 }
 
-Console.WriteLine("la media dei valori inseriti è: " + listaNumeri.Average());
+Console.WriteLine("la media dei valori inseriti è: " + Utilities.CalcolaMedia(listaNumeri));
 Console.WriteLine("Il valore maggiore inserito è: " + listaNumeri.Max());
 Console.WriteLine("Il valore minore inserito è: " + listaNumeri.Min());
 
@@ -32,21 +32,21 @@ Console.ReadLine();
 
 public static class Utilities
 {
-    public static decimal CalcolaMedia(List<decimal> listaNumeri)
+    public static decimal CalcolaMedia(List<int> listaNumeri)
     {
-        decimal contaNumeri = 0;
+        int contaNumeri = 0;
 
         foreach (var num in listaNumeri)
         {
             contaNumeri += num;
         }
 
-        decimal media = contaNumeri / listaNumeri.Count;
+        decimal media = (decimal)contaNumeri / listaNumeri.Count;
 
         return media;
     }
 
-    public static decimal CalcolaMin(List<decimal> listaNumeri)
+    public static decimal CalcolaMin(List<int> listaNumeri)
     {
         var min = listaNumeri[0];
 
@@ -61,7 +61,7 @@ public static class Utilities
         return min;
     }
 
-    public static decimal CalcolaMax(List<decimal> listaNumeri)
+    public static decimal CalcolaMax(List<int> listaNumeri)
     {
         var max = listaNumeri[0];
 
