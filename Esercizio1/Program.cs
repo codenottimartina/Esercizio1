@@ -1,4 +1,6 @@
-﻿//statistiche numeri: si chiede ciclicamente all'utente di inserire una serie di numeri, al fine di calcolare delle semplici statistiche come media, min e max.
+﻿
+
+//statistiche numeri: si chiede ciclicamente all'utente di inserire una serie di numeri, al fine di calcolare delle semplici statistiche come media, min e max.
 //Ad ogni iterazione quindi, l'utente potrà svolgere le seguenti operazioni
 //-inserire un numero intero -> in tal caso il software lo acquisisce e si predispone per acquisire un nuovo numero
 //-inserire il testo "fine" -> in tal caso il software termina il processo di acquisizione e stampa a video le statistiche di cui sopra rispetto ai numeri
@@ -22,11 +24,12 @@ while (numeroAcquisito != "fine")
     numeroAcquisito = Console.ReadLine();
 }
 
-Console.WriteLine("la media dei valori inseriti è: " + Utilities.CalcolaMedia(listaNumeri));
-Console.WriteLine("Il valore maggiore inserito è: " + Utilities.CalcolaMax(listaNumeri));
-Console.WriteLine("Il valore minore inserito è: " + Utilities.CalcolaMin(listaNumeri));
+Console.WriteLine("la media dei valori inseriti è: " + listaNumeri.Average());
+Console.WriteLine("Il valore maggiore inserito è: " + listaNumeri.Max());
+Console.WriteLine("Il valore minore inserito è: " + listaNumeri.Min());
 
 Console.ReadLine();
+
 public static class Utilities
 {
     public static decimal CalcolaMedia(List<decimal> listaNumeri)
@@ -73,3 +76,33 @@ public static class Utilities
         return max;
     }
 }
+
+//try
+//{
+//    throw new Exception("eccezione speciale 1");
+//}
+//catch (EccezioneSpeciale1 ex1)
+//{
+//    throw ex1;
+//}
+//catch (Exception ex)
+//{
+
+//}
+
+
+//public class EccezioneSpeciale1 : Exception
+//{
+//    public EccezioneSpeciale1(string message) : base(message)
+//    {
+
+//    }
+//}
+
+//public class EccezioneSpeciale2 : Exception
+//{
+//    public EccezioneSpeciale2(string message) : base(message)
+//    {
+
+//    }
+//}
